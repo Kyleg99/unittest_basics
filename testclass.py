@@ -26,11 +26,14 @@ class Dog:
 
 class TestStringMethods(unittest.TestCase):
 
-    def test_setup(self):
-        henry = Dog("brown", "lab")
-        self.assertEqual(henry.get_breed(), 'lab')
-        self.assertEqual(henry.get_color(), 'brown')
+    def setUp(self):
+        self.henry = Dog("brown", "lab")
+
+    def test_breed(self):
+        self.assertEqual(self.henry.get_breed(), 'lab')
+
+    def test_color(self):
+        self.assertEqual(self.henry.get_color(), 'brown')
 
     def test_bark(self):
-        henry = Dog("brown", "lab")
-        self.assertEqual(henry.bark(), 'BARK')
+        self.assertEqual(self.henry.bark(), 'BARK')
